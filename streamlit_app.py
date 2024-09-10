@@ -1,5 +1,15 @@
 import streamlit as st
 
+# إضافة CSS لجعل الكتابة من اليمين إلى اليسار
+st.markdown("""
+    <style>
+    body {
+        direction: rtl;
+        text-align: right;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
 # عنوان التطبيق
 st.title("حاسبة قياسات الملاعب")
 
