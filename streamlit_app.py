@@ -1,9 +1,13 @@
 import streamlit as st
 
-# إضافة CSS لجعل الكتابة من اليمين إلى اليسار
+# إضافة CSS لتعيين صورة كخلفية
 st.markdown("""
     <style>
     body {
+        background-image: url("https://imgur.com/a/vbW9kI3");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
         direction: rtl;
         text-align: right;
     }
