@@ -1,6 +1,6 @@
 import streamlit as st
 
-# إضافة CSS لتعيين صورة الخلفية، تقليل الشفافية، تحويل الكتابة من اليمين إلى اليسار، وجعل النصوص باللون الأسود
+# إضافة CSS لتعيين صورة الخلفية، تقليل الشفافية، وتحويل الكتابة من اليمين إلى اليسار
 page_bg_img = '''
 <style>
 .stApp {
@@ -11,10 +11,9 @@ page_bg_img = '''
     background-attachment: fixed;
     direction: rtl; /* تحويل الكتابة من اليمين إلى اليسار */
     text-align: right;
-    color: black; /* تغيير لون النصوص إلى الأسود */
 }
-h1, h2, h3, h4, h5, h6 {
-    color: black; /* تغيير لون العناوين إلى الأسود */
+h1, h2, h3, h4, h5, h6, p, div, span {
+    color: black !important; /* تغيير لون جميع النصوص إلى الأسود */
 }
 </style>
 '''
@@ -79,5 +78,5 @@ if basketball_width:
 # إضافة اسم المعد أسفل الصفحة
 st.markdown("""
     <hr>
-    <p style="text-align: center; color: black;">إعداد: أسعد الخصيبي - مشرف الرياضة المدرسية</p>
+    <p style="text-align: center;">إعداد: أسعد الخصيبي - مشرف الرياضة المدرسية</p>
     """, unsafe_allow_html=True)
