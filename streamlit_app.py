@@ -47,7 +47,7 @@ st.header("قياسات ملعب كرة السلة")
 basketball_width = st.number_input("أدخل العرض الجديد لملعب كرة السلة (بالمتر):", min_value=0.0, step=1.0, key="basketball_width")
 
 if basketball_width:
-    st.subheader("نتائج قياسات ملعب كرة السلةالمصغر):")
+    st.subheader("نتائج قياسات ملعب كرة السلة المصغر):")
     
     # المعادلات الجديدة بناءً على البيانات المقدمة
     free_throw_line = 0.386 * basketball_width
