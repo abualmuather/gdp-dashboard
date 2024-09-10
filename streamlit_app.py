@@ -1,10 +1,10 @@
 import streamlit as st
 
-# إضافة CSS لتعيين صورة كخلفية
+# إضافة CSS لتعيين صورة الخلفية من Imgur
 st.markdown("""
     <style>
     body {
-        background-image: url("https://imgur.com/a/vbW9kI3");
+        background-image: url('https://i.imgur.com/imImwx1.jpeg');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -29,7 +29,7 @@ if handball_width:
     st.write(f"منطقة التبديل: {round(0.23 * handball_width, 3)} متر")
     st.write(f"منطقة الحارس: {round(0.2 * handball_width, 3)} متر")
 
-# --- قياسات ملعب الكرة الطائرة (المعادلات المحدثة) ---
+# --- قياسات ملعب الكرة الطائرة ---
 st.header("قياسات ملعب الكرة الطائرة")
 volleyball_width = st.number_input("أدخل العرض الجديد لملعب الكرة الطائرة (بالمتر):", min_value=0.0, step=1.0, key="volleyball_width")
 
