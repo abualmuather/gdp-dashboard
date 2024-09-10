@@ -55,7 +55,7 @@ if basketball_width:
     
     # المعادلات الجديدة بناءً على البيانات المقدمة
     free_throw_line = 0.386 * basketball_width
-    free_throw_area_width = 0.276 * basketball_width
+    free_throw_area_width = 0.326666666666667 * basketball_width
     three_point_line = 0.45 * basketball_width
     center_circle_diameter = 0.24 * basketball_width
     distance_to_end = 0.105 * basketball_width
