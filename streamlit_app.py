@@ -11,14 +11,14 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 # عنوان التطبيق
-st.title("حاسبة قياسات الملاعب")
+st.title("حاسبة قياسات الملاعبالمصغرة")
 
 # --- قياسات ملعب كرة اليد ---
-st.header("قياسات ملعب كرة اليد")
+st.header("قياسات ملعب كرة اليدالمصغر")
 handball_width = st.number_input("أدخل العرض الجديد لملعب كرة اليد (بالمتر):", min_value=0.0, step=1.0, key="handball_width")
 
 if handball_width:
-    st.subheader("نتائج ملعب كرة اليد:")
+    st.subheader("نتائج قياسات ملعب كرة اليد المصغر:")
     st.write(f"خط 9 أمتار: {round(0.45 * handball_width, 3)} متر")
     st.write(f"خط 6 أمتار: {round(0.3 * handball_width, 3)} متر")
     st.write(f"خط رمية الجزاء: {round(0.35 * handball_width, 3)} متر")
@@ -30,11 +30,11 @@ st.header("قياسات ملعب الكرة الطائرة")
 volleyball_width = st.number_input("أدخل العرض الجديد لملعب الكرة الطائرة (بالمتر):", min_value=0.0, step=1.0, key="volleyball_width")
 
 if volleyball_width:
-    st.subheader("نتائج ملعب الكرة الطائرة:")
+    st.subheader("نتائج قياسات ملعب الكرة الطائرةالمصغر:")
     
     # المعادلات الجديدة بناءً على البيانات المقدمة
-    front_area = 0.3 * volleyball_width
-    back_area = 0.6 * volleyball_width
+    front_area = 0.333333333333333 * volleyball_width
+    back_area = 0.666666666666667 * volleyball_width
     substitution_area_length = 0.19 * volleyball_width
 
     # عرض النتائج
@@ -47,7 +47,7 @@ st.header("قياسات ملعب كرة السلة")
 basketball_width = st.number_input("أدخل العرض الجديد لملعب كرة السلة (بالمتر):", min_value=0.0, step=1.0, key="basketball_width")
 
 if basketball_width:
-    st.subheader("نتائج ملعب كرة السلة (وفق المعادلات المحدثة):")
+    st.subheader("نتائج قياسات ملعب كرة السلةالمصغر):")
     
     # المعادلات الجديدة بناءً على البيانات المقدمة
     free_throw_line = 0.386 * basketball_width
