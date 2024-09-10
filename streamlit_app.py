@@ -25,17 +25,24 @@ if handball_width:
     st.write(f"منطقة التبديل: {round(0.23 * handball_width, 3)} متر")
     st.write(f"منطقة الحارس: {round(0.2 * handball_width, 3)} متر")
 
-# --- قياسات ملعب الكرة الطائرة ---
+# --- قياسات ملعب الكرة الطائرة (المعادلات المحدثة) ---
 st.header("قياسات ملعب الكرة الطائرة")
 volleyball_width = st.number_input("أدخل العرض الجديد لملعب الكرة الطائرة (بالمتر):", min_value=0.0, step=1.0, key="volleyball_width")
 
 if volleyball_width:
     st.subheader("نتائج ملعب الكرة الطائرة:")
-    st.write(f"المنطقة الأمامية: {round(0.3 * volleyball_width, 3)} متر")
-    st.write(f"المنطقة الخلفية: {round(0.6 * volleyball_width, 3)} متر")
-    st.write(f"منطقة التبديل: {round(0.19 * volleyball_width, 3)} متر")
+    
+    # المعادلات الجديدة بناءً على البيانات المقدمة
+    front_area = 0.3 * volleyball_width
+    back_area = 0.6 * volleyball_width
+    substitution_area_length = 0.19 * volleyball_width
 
-# --- قياسات ملعب كرة السلة (المعادلات المحدثة) ---
+    # عرض النتائج
+    st.write(f"مساحة المنطقة الأمامية: {round(front_area, 3)} متر")
+    st.write(f"مساحة المنطقة الخلفية: {round(back_area, 3)} متر")
+    st.write(f"طول امتداد خطوط منطقة تبديل اللاعبين: {round(substitution_area_length, 3)} متر")
+
+# --- قياسات ملعب كرة السلة ---
 st.header("قياسات ملعب كرة السلة")
 basketball_width = st.number_input("أدخل العرض الجديد لملعب كرة السلة (بالمتر):", min_value=0.0, step=1.0, key="basketball_width")
 
@@ -43,17 +50,4 @@ if basketball_width:
     st.subheader("نتائج ملعب كرة السلة (وفق المعادلات المحدثة):")
     
     # المعادلات الجديدة بناءً على البيانات المقدمة
-    free_throw_line = 0.386 * basketball_width
-    free_throw_area_width = 0.276 * basketball_width
-    three_point_line = 0.45 * basketball_width
-    center_circle_diameter = 0.24 * basketball_width
-    distance_to_end = 0.105 * basketball_width
-    free_throw_half_circle = 0.12 * basketball_width
-
-    # عرض النتائج
-    st.write(f"طول خط الرمية الحرة: {round(free_throw_line, 3)} متر")
-    st.write(f"عرض منطقة الرمية الحرة: {round(free_throw_area_width, 3)} متر")
-    st.write(f"خط الثلاث نقاط: {round(three_point_line, 3)} متر")
-    st.write(f"قطر دائرة المنتصف: {round(center_circle_diameter, 3)} متر")
-    st.write(f"المسافة بين السلة وخط النهاية: {round(distance_to_end, 3)} متر")
-    st.write(f"نصف قطر دائرة الرمية الحرة: {round(free_throw_half_circle, 3)} متر")
+    free​⬤
