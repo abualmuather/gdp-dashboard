@@ -34,3 +34,16 @@ if volleyball_width:
     st.write(f"المنطقة الأمامية: {0.3 * volleyball_width} متر")
     st.write(f"المنطقة الخلفية: {0.6 * volleyball_width} متر")
     st.write(f"منطقة التبديل: {0.19 * volleyball_width} متر")
+
+# --- قياسات ملعب كرة السلة ---
+st.header("قياسات ملعب كرة السلة")
+basketball_width = st.number_input("أدخل العرض الجديد لملعب كرة السلة (بالمتر):", min_value=0.0, step=1.0, key="basketball_width")
+
+if basketball_width:
+    st.subheader("نتائج ملعب كرة السلة:")
+    st.write(f"طول خط الرمية الحرة: {0.386 * basketball_width + 5.80} متر")
+    st.write(f"عرض منطقة الرمية الحرة: {0.276 * basketball_width + 4.15} متر")
+    st.write(f"خط الثلاث نقاط: {0.45 * basketball_width + 6.75} متر")
+    st.write(f"دائرة المنتصف: {0.24 * basketball_width + 3.6} متر")
+    st.write(f"المسافة من السلة إلى منتصف الملعب: {0.105 * basketball_width + 15.575} متر")
+    st.write(f"نصف دائرة الرمية الحرة: {0.12 * basketball_width + 1.8} متر")
