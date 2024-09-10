@@ -1,18 +1,18 @@
 import streamlit as st
 
 # إضافة CSS لتعيين صورة الخلفية من Imgur
-st.markdown("""
-    <style>
-    body {
-        background-image: url('https://i.imgur.com/imImwx1.jpeg');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        direction: rtl;
-        text-align: right;
-    }
-    </style>
-    """, unsafe_allow_html=True)
+page_bg_img = '''
+<style>
+.stApp {
+    background-image: url("https://i.imgur.com/imImwx1.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+</style>
+'''
+
+st.markdown(page_bg_img, unsafe_allow_html=True)
 
 # عنوان التطبيق
 st.title("حاسبة قياسات الملاعب المصغرة")
