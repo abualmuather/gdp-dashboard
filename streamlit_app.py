@@ -1,20 +1,25 @@
 import streamlit as st
 
-# إضافة CSS لتعيين صورة الخلفية من Imgur مع تحسينات واجهة احترافية
+# إضافة CSS لتعيين صورة الخلفية وتعديل الكتابة من اليمين إلى اليسار باستثناء العنوان الرئيسي
 st.markdown("""
     <style>
     .stApp {
-        background-image: url('https://i.imgur.com/your-image-id.jpeg'); /* استبدل your-image-id بـ ID الصورة الفعلي */
+        background-image: url('https://i.imgur.com/imImwx1.jpeg'); /* استبدل بـ رابط الصورة المباشر */
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
         background-attachment: fixed;
     }
+    body {
+        direction: rtl; /* تحويل الكتابة من اليمين إلى اليسار */
+        text-align: right; /* محاذاة النصوص إلى اليمين */
+    }
     .title {
+        direction: ltr; /* عدم تحويل عنوان التطبيق */
+        text-align: center; /* محاذاة العنوان في المنتصف */
         background-color: rgba(255, 255, 255, 0.8); /* خلفية شفافة للنص */
         padding: 10px;
         border-radius: 10px;
-        text-align: center;
         font-size: 2em;
         font-weight: bold;
         color: #000;
@@ -47,7 +52,7 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-# عنوان التطبيق
+# عنوان التطبيق (يظل من اليسار إلى اليمين وفي الوسط)
 st.markdown('<div class="title">حاسبة قياسات الملاعب المصغرة</div>', unsafe_allow_html=True)
 
 # --- قياسات ملعب كرة اليد ---
