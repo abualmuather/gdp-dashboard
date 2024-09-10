@@ -50,4 +50,17 @@ if basketball_width:
     st.subheader("نتائج ملعب كرة السلة (وفق المعادلات المحدثة):")
     
     # المعادلات الجديدة بناءً على البيانات المقدمة
-    free​⬤
+    free_throw_line = 0.386 * basketball_width
+    free_throw_area_width = 0.276 * basketball_width
+    three_point_line = 0.45 * basketball_width
+    center_circle_diameter = 0.24 * basketball_width
+    distance_to_end = 0.105 * basketball_width
+    free_throw_half_circle = 0.12 * basketball_width
+
+    # عرض النتائج
+    st.write(f"طول خط الرمية الحرة: {round(free_throw_line, 3)} متر")
+    st.write(f"عرض منطقة الرمية الحرة: {round(free_throw_area_width, 3)} متر")
+    st.write(f"خط الثلاث نقاط: {round(three_point_line, 3)} متر")
+    st.write(f"قطر دائرة المنتصف: {round(center_circle_diameter, 3)} متر")
+    st.write(f"المسافة بين السلة وخط النهاية: {round(distance_to_end, 3)} متر")
+    st.write(f"نصف قطر دائرة الرمية الحرة: {round(free_throw_half_circle, 3)} متر")
