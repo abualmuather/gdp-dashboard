@@ -11,10 +11,10 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 # عنوان التطبيق
-st.title("حاسبة قياسات الملاعبالمصغرة")
+st.title("حاسبة قياسات الملاعب المصغرة")
 
 # --- قياسات ملعب كرة اليد ---
-st.header("قياسات ملعب كرة اليدالمصغر")
+st.header("قياسات ملعب كرة اليد المصغر")
 handball_width = st.number_input("أدخل العرض الجديد لملعب كرة اليد (بالمتر):", min_value=0.0, step=1.0, key="handball_width")
 
 if handball_width:
@@ -30,7 +30,7 @@ st.header("قياسات ملعب الكرة الطائرة")
 volleyball_width = st.number_input("أدخل العرض الجديد لملعب الكرة الطائرة (بالمتر):", min_value=0.0, step=1.0, key="volleyball_width")
 
 if volleyball_width:
-    st.subheader("نتائج قياسات ملعب الكرة الطائرةالمصغر:")
+    st.subheader("نتائج قياسات ملعب الكرة الطائرة المصغر:")
     
     # المعادلات الجديدة بناءً على البيانات المقدمة
     front_area = 0.333333333333333 * volleyball_width
@@ -47,7 +47,7 @@ st.header("قياسات ملعب كرة السلة")
 basketball_width = st.number_input("أدخل العرض الجديد لملعب كرة السلة (بالمتر):", min_value=0.0, step=1.0, key="basketball_width")
 
 if basketball_width:
-    st.subheader("نتائج قياسات ملعب كرة السلة المصغر):")
+    st.subheader("نتائج قياسات ملعب كرة السلة المصغر:")
     
     # المعادلات الجديدة بناءً على البيانات المقدمة
     free_throw_line = 0.386 * basketball_width
@@ -64,3 +64,9 @@ if basketball_width:
     st.write(f"قطر دائرة المنتصف: {round(center_circle_diameter, 3)} متر")
     st.write(f"المسافة بين السلة وخط النهاية: {round(distance_to_end, 3)} متر")
     st.write(f"نصف قطر دائرة الرمية الحرة: {round(free_throw_half_circle, 3)} متر")
+
+# إضافة اسم المعد أسفل الصفحة
+st.markdown("""
+    <hr>
+    <p style="text-align: center;">إعداد: أسعد الخصيبي - مشرف الرياضة المدرسية</p>
+    """, unsafe_allow_html=True)
