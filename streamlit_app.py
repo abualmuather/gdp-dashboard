@@ -4,12 +4,11 @@ import streamlit as st
 page_bg_img = '''
 <style>
 .stApp {
-    background-image: url("https://i.imgur.com/imImwx1.jpeg");
+    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("https://i.imgur.com/imImwx1.jpeg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    opacity: 0.5;  /* تقليل الشفافية */
     direction: rtl; /* تحويل الكتابة من اليمين إلى اليسار */
     text-align: right;
 }
