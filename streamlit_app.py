@@ -1,6 +1,6 @@
 import streamlit as st
 
-# إضافة CSS لتعيين صورة الخلفية من Imgur
+# إضافة CSS لتعيين صورة الخلفية، تقليل الشفافية، وتحويل الكتابة من اليمين إلى اليسار
 page_bg_img = '''
 <style>
 .stApp {
@@ -8,6 +8,10 @@ page_bg_img = '''
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
+    opacity: 0.5;  /* تقليل الشفافية */
+    direction: rtl; /* تحويل الكتابة من اليمين إلى اليسار */
+    text-align: right;
 }
 </style>
 '''
