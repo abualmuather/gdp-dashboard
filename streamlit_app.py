@@ -108,7 +108,7 @@ elif option == "الكرة الطائرة":
     volleyball_length = volleyball_width * 2  # الطول يساوي ضعف العرض
 
     if volleyball_width:
-        st.markdown('<div class="result-box">نتائج قياسات ملعب الكرة الطائرة المصغر:</div>', unsafe_allow_html=True)
+        st.markdown('<div class="result-box">نتائج قياسات ملعب الكرة الطائرة المصغر:</div>', unsafe_allowhtml=True)
         front_area = 0.333333333333333 * volleyball_width
         back_area = 0.666666666666667 * volleyball_width
         substitution_area_length = 0.19 * volleyball_width
@@ -123,7 +123,7 @@ elif option == "كرة السلة":
     
     st.markdown('<div class="input-label">أدخل العرض الجديد لملعب كرة السلة (بالمتر):</div>', unsafe_allow_html=True)
     basketball_width = st.number_input("", min_value=0.0, step=0.5)
-    basketball_length = basketball_width * 28 / 15  # تعديل نسبة الطول بناءً على العرض المدخل
+    basketball_length = basketball_width * 2  # الطول يساوي ضعف العرض
 
     if basketball_width:
         st.markdown('<div class="result-box">نتائج قياسات ملعب كرة السلة المصغر:</div>', unsafe_allow_html=True)
