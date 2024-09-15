@@ -123,7 +123,7 @@ elif option == "كرة السلة":
     
     st.markdown('<div class="input-label">أدخل العرض الجديد لملعب كرة السلة (بالمتر):</div>', unsafe_allow_html=True)
     basketball_width = st.number_input("", min_value=0.0, step=0.5)
-    basketball_length = basketball_width * 2  # الطول يساوي ضعف العرض
+    basketball_length = basketball_width * 2-1  # الطول يساوي ضعف العرض
 
     if basketball_width:
         st.markdown('<div class="result-box">نتائج قياسات ملعب كرة السلة المصغر:</div>', unsafe_allow_html=True)
