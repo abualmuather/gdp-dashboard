@@ -1,10 +1,10 @@
 import streamlit as st
+import matplotlib.pyplot as plt
 
 # إضافة CSS لتعديل النصوص والتنسيق بدون خلفية
 st.markdown("""
     <style>
     .stApp {
-        /* قمنا بإزالة الخلفية */
         background-color: #2c3e50; /* لون الخلفية الداكن */
         font-family: 'Arial', sans-serif;
         color: #f5f5f5; /* لون الخط العام */
@@ -100,6 +100,16 @@ if option == "كرة اليد":
         st.write(f"منطقة التبديل: {round(0.23 * handball_width, 3)} متر")
         st.write(f"منطقة الحارس: {round(0.2 * handball_width, 3)} متر")
 
+        # رسم توضيحي لملعب كرة اليد
+        fig, ax = plt.subplots()
+        ax.plot([0, handball_width], [0, 0], color="black", linewidth=2)  # الخط السفلي
+        ax.plot([0, handball_width], [20, 20], color="black", linewidth=2)  # الخط العلوي
+        ax.plot([0, 0], [0, 20], color="black", linewidth=2)  # الجانب الأيسر
+        ax.plot([handball_width, handball_width], [0, 20], color="black", linewidth=2)  # الجانب الأيمن
+        ax.set_aspect(1)
+        plt.title("رسم توضيحي لملعب كرة اليد")
+        st.pyplot(fig)
+
 elif option == "الكرة الطائرة":
     st.markdown('<div class="section-header">قياسات ملعب الكرة الطائرة المصغر</div>', unsafe_allow_html=True)
     
@@ -115,6 +125,16 @@ elif option == "الكرة الطائرة":
         st.write(f"مساحة المنطقة الأمامية: {round(front_area, 3)} متر")
         st.write(f"مساحة المنطقة الخلفية: {round(back_area, 3)} متر")
         st.write(f"طول امتداد خطوط منطقة تبديل اللاعبين: {round(substitution_area_length, 3)} متر")
+
+        # رسم توضيحي لملعب الكرة الطائرة
+        fig, ax = plt.subplots()
+        ax.plot([0, volleyball_width], [0, 0], color="black", linewidth=2)  # الخط السفلي
+        ax.plot([0, volleyball_width], [9, 9], color="black", linewidth=2)  # الخط العلوي
+        ax.plot([0, 0], [0, 9], color="black", linewidth=2)  # الجانب الأيسر
+        ax.plot([volleyball_width, volleyball_width], [0, 9], color="black", linewidth=2)  # الجانب الأيمن
+        ax.set_aspect(1)
+        plt.title("رسم توضيحي لملعب الكرة الطائرة")
+        st.pyplot(fig)
 
 elif option == "كرة السلة":
     st.markdown('<div class="section-header">قياسات ملعب كرة السلة المصغر</div>', unsafe_allow_html=True)
@@ -134,9 +154,30 @@ elif option == "كرة السلة":
         st.write(f"طول خط الرمية الحرة: {round(free_throw_line, 3)} متر")
         st.write(f"عرض منطقة الرمية الحرة: {round(free_throw_area_width, 3)} متر")
         st.write(f"خط الثلاث نقاط: {round(three_point_line, 3)} متر")
-        st.write(f"قطر دائرة المنتصف: {round(center_circle_diameter, 3)} متر")
+              st.write(f"قطر دائرة المنتصف: {round(center_circle_diameter, 3)} متر")
         st.write(f"المسافة بين السلة وخط النهاية: {round(distance_to_end, 3)} متر")
         st.write(f"نصف قطر دائرة الرمية الحرة: {round(free_throw_half_circle, 3)} متر")
+
+        # رسم توضيحي لملعب كرة السلة
+        fig, ax = plt.subplots()
+        # رسم الملعب
+        ax.plot([0, basketball_width], [0, 0], color="black", linewidth=2)  # الخط السفلي
+        ax.plot([0, basketball_width], [15, 15], color="black", linewidth=2)  # الخط العلوي
+        ax.plot([0, 0], [0, 15], color="black", linewidth=2)  # الجانب الأيسر
+        ax.plot([basketball_width, basketball_width], [0, 15], color="black", linewidth=2)  # الجانب الأيمن
+
+        # دائرة المنتصف
+        center_x = basketball_width / 2
+        center_circle_radius = center_circle_diameter / 2
+        circle = plt.Circle((center_x, 7.5), center_circle_radius, color="black", fill=False, linewidth=2)
+        ax.add_patch(circle)
+
+        # خط الرمية الحرة
+        ax.plot([center_x - free_throw_area_width / 2, center_x + free_throw_area_width / 2], [5.8, 5.8], color="black", linewidth=2)
+
+        ax.set_aspect(1)
+        plt.title("رسم توضيحي لملعب كرة السلة")
+        st.pyplot(fig)
 
 # إضافة اسم المعد أسفل الصفحة
 st.markdown("""
@@ -144,3 +185,4 @@ st.markdown("""
         إعداد: أسعد الخصيبي - مشرف الرياضة المدرسية
     </div>
     """, unsafe_allow_html=True)
+
