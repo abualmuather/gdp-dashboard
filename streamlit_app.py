@@ -154,7 +154,7 @@ elif option == "كرة السلة":
         st.write(f"طول خط الرمية الحرة: {round(free_throw_line, 3)} متر")
         st.write(f"عرض منطقة الرمية الحرة: {round(free_throw_area_width, 3)} متر")
         st.write(f"خط الثلاث نقاط: {round(three_point_line, 3)} متر")
-              st.write(f"قطر دائرة المنتصف: {round(center_circle_diameter, 3)} متر")
+        st.write(f"قطر دائرة المنتصف: {round(center_circle_diameter, 3)} متر")
         st.write(f"المسافة بين السلة وخط النهاية: {round(distance_to_end, 3)} متر")
         st.write(f"نصف قطر دائرة الرمية الحرة: {round(free_throw_half_circle, 3)} متر")
 
@@ -185,4 +185,3 @@ st.markdown("""
         إعداد: أسعد الخصيبي - مشرف الرياضة المدرسية
     </div>
     """, unsafe_allow_html=True)
-
