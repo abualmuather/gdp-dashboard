@@ -79,13 +79,13 @@ st.markdown("""
 # عنوان التطبيق بتصميم حديث
 st.markdown('<div class="title">حاسبة قياسات الملاعب المصغرة</div>', unsafe_allow_html=True)
 
-# إضافة زرين تفاعليين لاختيار نوع الملعب
+# اختيار نوع الملعب باستخدام قائمة منسدلة
 option = st.selectbox("اختر نوع الملعب:", ["كرة اليد", "الكرة الطائرة", "كرة السلة"])
 
-# استخدام اختيار المستخدم لعرض الملعب المناسب
+# استخدام اختيار المستخدم لعرض الملعب المناسب مع إدخال يدوي
 if option == "كرة اليد":
     st.markdown('<div class="section-header">قياسات ملعب كرة اليد المصغر</div>', unsafe_allow_html=True)
-    handball_width = st.slider("أدخل العرض الجديد لملعب كرة اليد (بالمتر):", min_value=0.0, max_value=50.0, step=0.5, key="handball_width")
+    handball_width = st.number_input("أدخل العرض الجديد لملعب كرة اليد (بالمتر):", min_value=0.0, step=0.5)
 
     if handball_width:
         st.markdown('<div class="result-box">نتائج قياسات ملعب كرة اليد المصغر:</div>', unsafe_allow_html=True)
@@ -97,7 +97,7 @@ if option == "كرة اليد":
 
 elif option == "الكرة الطائرة":
     st.markdown('<div class="section-header">قياسات ملعب الكرة الطائرة المصغر</div>', unsafe_allow_html=True)
-    volleyball_width = st.slider("أدخل العرض الجديد لملعب الكرة الطائرة (بالمتر):", min_value=0.0, max_value=50.0, step=0.5, key="volleyball_width")
+    volleyball_width = st.number_input("أدخل العرض الجديد لملعب الكرة الطائرة (بالمتر):", min_value=0.0, step=0.5)
 
     if volleyball_width:
         st.markdown('<div class="result-box">نتائج قياسات ملعب الكرة الطائرة المصغر:</div>', unsafe_allow_html=True)
@@ -111,7 +111,7 @@ elif option == "الكرة الطائرة":
 
 elif option == "كرة السلة":
     st.markdown('<div class="section-header">قياسات ملعب كرة السلة المصغر</div>', unsafe_allow_html=True)
-    basketball_width = st.slider("أدخل العرض الجديد لملعب كرة السلة (بالمتر):", min_value=0.0, max_value=50.0, step=0.5, key="basketball_width")
+    basketball_width = st.number_input("أدخل العرض الجديد لملعب كرة السلة (بالمتر):", min_value=0.0, step=0.5)
 
     if basketball_width:
         st.markdown('<div class="result-box">نتائج قياسات ملعب كرة السلة المصغر:</div>', unsafe_allow_html=True)
