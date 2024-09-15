@@ -108,7 +108,7 @@ elif option == "الكرة الطائرة":
     volleyball_length = volleyball_width * 2  # الطول يساوي ضعف العرض
 
     if volleyball_width:
-        st.markdown('<div class="result-box">نتائج قياسات ملعب الكرة الطائرة المصغر:</div>', unsafe_allowhtml=True)
+        st.markdown('<div class="result-box">نتائج قياسات ملعب الكرة الطائرة المصغر:</div>', unsafe_allow_html=True)
         front_area = 0.333333333333333 * volleyball_width
         back_area = 0.666666666666667 * volleyball_width
         substitution_area_length = 0.19 * volleyball_width
