@@ -1,9 +1,10 @@
 import streamlit as st
 
-# إضافة CSS لتخصيص الألوان بدون خلفية
+# إضافة CSS لتعديل النصوص والتنسيق بدون خلفية
 st.markdown("""
     <style>
     .stApp {
+        /* قمنا بإزالة الخلفية */
         background-color: #2c3e50; /* لون الخلفية الداكن */
         font-family: 'Arial', sans-serif;
         color: #f5f5f5; /* لون الخط العام */
@@ -65,7 +66,11 @@ st.markdown("""
     .button:hover {
         background-color: #3498db; /* لون أزرق أفتح عند التمرير */
     }
-    .label-text {
+    .slider-label {
+        color: #ecf0f1; /* لون فاتح للتصنيفات */
+        font-size: 1.1em;
+    }
+    .input-label {
         color: #ffffff; /* لون النص الأبيض */
         font-size: 1.2em;
         margin-bottom: 5px;
@@ -76,14 +81,15 @@ st.markdown("""
 # عنوان التطبيق بتصميم حديث
 st.markdown('<div class="title">حاسبة قياسات الملاعب المصغرة</div>', unsafe_allow_html=True)
 
+# اختيار نوع الملعب باستخدام قائمة منسدلة
+option = st.selectbox("اختر نوع الملعب:", ["كرة اليد", "الكرة الطائرة", "كرة السلة"])
+
 # استخدام اختيار المستخدم لعرض الملعب المناسب مع إدخال يدوي
-if True:  # يمكن استبدال True بشرط لاختيار الملعب
+if option == "كرة اليد":
     st.markdown('<div class="section-header">قياسات ملعب كرة اليد المصغر</div>', unsafe_allow_html=True)
     
-    # نص العبارة بتنسيق مخصص
-    st.markdown('<div class="label-text">أدخل العرض الجديد لملعب كرة اليد (بالمتر):</div>', unsafe_allow_html=True)
-    
-    # إدخال العرض الجديد
+    # العبارة مخصصة مع لون النص الأبيض
+    st.markdown('<div class="input-label">أدخل العرض الجديد لملعب كرة اليد (بالمتر):</div>', unsafe_allow_html=True)
     handball_width = st.number_input("", min_value=0.0, step=0.5)
 
     if handball_width:
@@ -93,6 +99,44 @@ if True:  # يمكن استبدال True بشرط لاختيار الملعب
         st.write(f"خط رمية الجزاء: {round(0.35 * handball_width, 3)} متر")
         st.write(f"منطقة التبديل: {round(0.23 * handball_width, 3)} متر")
         st.write(f"منطقة الحارس: {round(0.2 * handball_width, 3)} متر")
+
+elif option == "الكرة الطائرة":
+    st.markdown('<div class="section-header">قياسات ملعب الكرة الطائرة المصغر</div>', unsafe_allow_html=True)
+    
+    st.markdown('<div class="input-label">أدخل العرض الجديد لملعب الكرة الطائرة (بالمتر):</div>', unsafe_allow_html=True)
+    volleyball_width = st.number_input("", min_value=0.0, step=0.5)
+
+    if volleyball_width:
+        st.markdown('<div class="result-box">نتائج قياسات ملعب الكرة الطائرة المصغر:</div>', unsafe_allow_html=True)
+        front_area = 0.333333333333333 * volleyball_width
+        back_area = 0.666666666666667 * volleyball_width
+        substitution_area_length = 0.19 * volleyball_width
+
+        st.write(f"مساحة المنطقة الأمامية: {round(front_area, 3)} متر")
+        st.write(f"مساحة المنطقة الخلفية: {round(back_area, 3)} متر")
+        st.write(f"طول امتداد خطوط منطقة تبديل اللاعبين: {round(substitution_area_length, 3)} متر")
+
+elif option == "كرة السلة":
+    st.markdown('<div class="section-header">قياسات ملعب كرة السلة المصغر</div>', unsafe_allow_html=True)
+    
+    st.markdown('<div class="input-label">أدخل العرض الجديد لملعب كرة السلة (بالمتر):</div>', unsafe_allow_html=True)
+    basketball_width = st.number_input("", min_value=0.0, step=0.5)
+
+    if basketball_width:
+        st.markdown('<div class="result-box">نتائج قياسات ملعب كرة السلة المصغر:</div>', unsafe_allow_html=True)
+        free_throw_line = 0.386 * basketball_width
+        free_throw_area_width = 0.326666666666667 * basketball_width
+        three_point_line = 0.45 * basketball_width
+        center_circle_diameter = 0.24 * basketball_width
+        distance_to_end = 0.105 * basketball_width
+        free_throw_half_circle = 0.12 * basketball_width
+
+        st.write(f"طول خط الرمية الحرة: {round(free_throw_line, 3)} متر")
+        st.write(f"عرض منطقة الرمية الحرة: {round(free_throw_area_width, 3)} متر")
+        st.write(f"خط الثلاث نقاط: {round(three_point_line, 3)} متر")
+        st.write(f"قطر دائرة المنتصف: {round(center_circle_diameter, 3)} متر")
+        st.write(f"المسافة بين السلة وخط النهاية: {round(distance_to_end, 3)} متر")
+        st.write(f"نصف قطر دائرة الرمية الحرة: {round(free_throw_half_circle, 3)} متر")
 
 # إضافة اسم المعد أسفل الصفحة
 st.markdown("""
