@@ -31,7 +31,7 @@ st.markdown("""
         border-radius: 8px;
         font-size: 1.5em;
         font-weight: bold;
-        color: #fff;
+        color: #f0f0f0; /* لون فاتح */
         margin-top: 20px;
         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     }
@@ -47,7 +47,7 @@ st.markdown("""
     .footer {
         margin-top: 50px;
         text-align: center;
-        color: #fff;
+        color: #f0f0f0; /* لون فاتح */
         font-size: 1em;
         padding: 10px;
         background-color: rgba(0, 123, 255, 0.9);
