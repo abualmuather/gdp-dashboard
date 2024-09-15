@@ -1,6 +1,6 @@
 import streamlit as st
 
-# إضافة CSS لتعيين صورة الخلفية وتعديل الكتابة من اليمين إلى اليسار مع تصميم عصري
+# إضافة CSS لتعيين صورة الخلفية وتعديل الكتابة من اليمين إلى اليسار مع تصميم عصري ومتناسق
 st.markdown("""
     <style>
     .stApp {
@@ -10,6 +10,7 @@ st.markdown("""
         background-repeat: no-repeat;
         background-attachment: fixed;
         font-family: 'Arial', sans-serif;
+        color: #f5f5f5; /* لون الخط العام */
     }
     body {
         direction: rtl;
@@ -17,56 +18,60 @@ st.markdown("""
     }
     .title {
         text-align: center;
-        background-color: rgba(0, 123, 255, 0.9); /* خلفية حديثة زرقاء */
+        background-color: #2c3e50; /* خلفية داكنة مع لون هادئ */
         padding: 15px;
-        border-radius: 15px;
-        font-size: 2.5em;
+        border-radius: 10px;
+        font-size: 2.2em;
         font-weight: bold;
-        color: #fff;
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        color: #ecf0f1; /* لون النص الأبيض المائل للرمادي */
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* ظل خفيف */
     }
     .section-header {
-        background-color: rgba(0, 0, 0, 0.6);
+        background-color: #34495e; /* لون هادئ للأقسام */
         padding: 10px;
         border-radius: 8px;
-        font-size: 1.5em;
+        font-size: 1.4em;
         font-weight: bold;
-        color: #f0f0f0; /* لون فاتح */
+        color: #ecf0f1;
         margin-top: 20px;
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     }
     .result-box {
-        background-color: rgba(255, 255, 255, 0.9);
+        background-color: rgba(255, 255, 255, 0.1); /* خلفية شفافة قليلاً */
         padding: 15px;
         border-radius: 10px;
         font-size: 1.2em;
-        color: #000;
+        color: #ecf0f1; /* نص فاتح */
         margin-bottom: 15px;
         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     }
     .footer {
         margin-top: 50px;
         text-align: center;
-        color: #f0f0f0; /* لون فاتح */
+        color: #ecf0f1;
         font-size: 1em;
         padding: 10px;
-        background-color: rgba(0, 123, 255, 0.9);
+        background-color: #2c3e50;
         border-radius: 15px;
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
     }
     .button {
-        background-color: #007BFF;
+        background-color: #2980b9; /* لون أزرق عصري */
         color: white;
         padding: 10px 20px;
         border: none;
         border-radius: 10px;
         font-size: 1.1em;
         cursor: pointer;
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
         transition: background-color 0.3s;
     }
     .button:hover {
-        background-color: #0056b3;
+        background-color: #3498db; /* لون أزرق أفتح عند التمرير */
+    }
+    .slider-label {
+        color: #ecf0f1; /* لون فاتح للتصنيفات */
+        font-size: 1.1em;
     }
     </style>
     """, unsafe_allow_html=True)
