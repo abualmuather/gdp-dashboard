@@ -129,10 +129,7 @@ elif option == "كرة السلة":
         st.write(f"المسافة بين السلة وخط النهاية: {round(distance_to_end, 3)} متر")
         st.write(f"نصف قطر دائرة الرمية الحرة: {round(free_throw_half_circle, 3)} متر")
 
-# إضافة زر إعادة تعيين
-if st.button('إعادة تعيين'):
-    st.experimental_rerun()
-
+# لا حاجة لزر إعادة التعيين الآن
 # إضافة اسم المعد أسفل الصفحة
 st.markdown("""
     <div class="footer">
