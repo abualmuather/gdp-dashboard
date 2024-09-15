@@ -1,27 +1,13 @@
 import streamlit as st
 
-# إضافة CSS لتعديل الخلفية وجعل النصوص أكثر وضوحًا مع تصميم عصري ومتناسق
+# إضافة CSS لتعديل النصوص والتنسيق بدون خلفية
 st.markdown("""
     <style>
     .stApp {
-        background-image: url('https://i.imgur.com/plTogEg.png'); /* استبدل بـ رابط الصورة المباشر */
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
+        /* قمنا بإزالة الخلفية */
+        background-color: #2c3e50; /* لون الخلفية الداكن */
         font-family: 'Arial', sans-serif;
         color: #f5f5f5; /* لون الخط العام */
-    }
-    /* إضافة طبقة تغطية شفافة لتحسين التباين */
-    .stApp::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5); /* طبقة شفافة سوداء */
-        z-index: -1;
     }
     body {
         direction: rtl;
