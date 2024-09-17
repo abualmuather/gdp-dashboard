@@ -172,4 +172,4 @@ st.markdown("""
     <div class="footer">
         إعداد: أسعد الخصيبي - مشرف الرياضة المدرسية
     </div>
-    """, unsafe_allow
+    """, unsafe_allow_html=True)
