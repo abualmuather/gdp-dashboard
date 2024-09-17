@@ -171,6 +171,6 @@ elif option == "كرة السلة":
 st.markdown("""
     <div class="footer">
         إعداد: أسعد الخصيبي - مشرف الرياضة المدرسية 
-       محافظة مسقط <br>
+       محافظة مسقط -
     </div>
     """, unsafe_allow_html=True)
