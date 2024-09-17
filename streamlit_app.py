@@ -1,6 +1,6 @@
 import streamlit as st
 
-# إضافة CSS لتعديل النصوص والتنسيق بدون خلفية
+# إضافة CSS لتعديل النصوص والتنسيق
 st.markdown("""
     <style>
     .stApp {
@@ -21,6 +21,12 @@ st.markdown("""
         font-weight: bold;
         color: #ecf0f1;
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    }
+    .header-text {
+        text-align: right;
+        color: #d3d3d3; /* لون رمادي فاتح */
+        font-size: 0.9em; /* حجم خط صغير */
+        margin-bottom: 10px;
     }
     .section-header {
         background-color: #34495e;
@@ -75,11 +81,21 @@ st.markdown("""
         margin-bottom: 5px;
     }
     .selectbox-label {
-        color: #ffffff; /* جعل النص أبيض */
+        color: #ffffff;
         font-size: 1.2em;
         margin-bottom: 5px;
     }
     </style>
+    """, unsafe_allow_html=True)
+
+# إضافة الديباجة في أعلى الصفحة
+st.markdown("""
+    <div class="header-text">
+        المديرية العامة للتربية والتعليم بمحافظة مسقط <br>
+        دائرة الإشراف التربوي <br>
+        قسم الإشراف الفني <br>
+        الرياضة المدرسية
+    </div>
     """, unsafe_allow_html=True)
 
 # عنوان التطبيق بتصميم حديث
