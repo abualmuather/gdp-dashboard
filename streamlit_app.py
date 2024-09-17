@@ -10,7 +10,7 @@ st.markdown("""
     }
     body {
         direction: rtl;
-        text-align: right;
+        text-align: center;
     }
     .title {
         text-align: center;
@@ -23,13 +23,13 @@ st.markdown("""
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
     }
     .header-text {
-        text-align: right;
+        text-align: center;
         color: #d3d3d3; /* لون رمادي فاتح */
         font-size: 0.7em; /* حجم خط صغير */
         margin-bottom: 10px;
+        margin-left: auto;
+        margin-right: auto;
         width: 100%; /* توسيع النص ليشغل كامل العرض */
-        margin-left: auto; /* توسيط النص على يمين الصفحة */
-        margin-right: 0;
     }
     .section-header {
         background-color: #34495e;
@@ -91,7 +91,7 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-# إضافة الديباجة في أعلى الصفحة وتوسيطها إلى اليمين
+# إضافة الديباجة في أعلى الصفحة وتوسيطها في الوسط
 st.markdown("""
     <div class="header-text">
         المديرية العامة للتربية والتعليم بمحافظة مسقط <br>
