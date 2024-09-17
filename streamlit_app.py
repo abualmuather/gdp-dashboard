@@ -105,7 +105,9 @@ st.markdown("""
 st.markdown('<div class="title">حاسبة قياسات الملاعب المصغرة</div>', unsafe_allow_html=True)
 
 # إضافة العنوان لنوع الملعب مع لون أبيض
+
 st.markdown('<div class="selectbox-label">اختر نوع الملعب:</div>', unsafe_allow_html=True)
+ </div>
 # اختيار نوع الملعب باستخدام قائمة منسدلة
 option = st.selectbox("", ["كرة اليد", "الكرة الطائرة", "كرة السلة"])
 
