@@ -25,10 +25,10 @@ st.markdown("""
     .header-text {
         text-align: right;
         color: #d3d3d3; /* لون رمادي فاتح */
-        font-size: 0.7em; /* تصغير حجم الخط */
+        font-size: 0.7em; /* حجم خط صغير */
         margin-bottom: 10px;
-        width: 40%; /* تقليل عرض النص لتوسيطه أكثر */
-        margin-left: auto;
+        width: 100%; /* توسيع النص ليشغل كامل العرض */
+        margin-right: 0; /* توسيط النص إلى اليمين */
     }
     .section-header {
         background-color: #34495e;
@@ -90,7 +90,7 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-# إضافة الديباجة في أعلى الصفحة
+# إضافة الديباجة في أعلى الصفحة وتوسيطها إلى اليمين
 st.markdown("""
     <div class="header-text">
         المديرية العامة للتربية والتعليم بمحافظة مسقط <br>
@@ -144,14 +144,14 @@ elif option == "الكرة الطائرة":
         st.write(f"طول امتداد خطوط منطقة تبديل اللاعبين: {round(substitution_area_length, 1)} متر")
 
 elif option == "كرة السلة":
-    st.markdown('<div class="section-header">قياسات ملعب كرة السلة المصغر</div>', unsafe_allowhtml=True)
+    st.markdown('<div class="section-header">قياسات ملعب كرة السلة المصغر</div>', unsafe_allow_html=True)
     
-    st.markdown('<div class="input-label">أدخل العرض الجديد لملعب كرة السلة (بالمتر):</div>', unsafe_allowhtml=True)
+    st.markdown('<div class="input-label">أدخل العرض الجديد لملعب كرة السلة (بالمتر):</div>', unsafe_allow_html=True)
     basketball_width = st.number_input("", min_value=0.0, step=0.5)
     basketball_length = basketball_width * 2 - 2  # الطول يساوي ضعف العرض
 
     if basketball_width:
-        st.markdown('<div class="result-box">نتائج قياسات ملعب كرة السلة المصغر:</div>', unsafe_allowhtml=True)
+        st.markdown('<div class="result-box">نتائج قياسات ملعب كرة السلة المصغر:</div>', unsafe_allow_html=True)
         free_throw_line = 0.386 * basketball_width
         free_throw_area_width = 0.326666666666667 * basketball_width
         three_point_line = 0.45 * basketball_width
@@ -170,6 +170,6 @@ elif option == "كرة السلة":
 # إضافة اسم المعد أسفل الصفحة
 st.markdown("""
     <div class="footer">
-        إعداد: أسعد الخصيبي - مشرف الرياضة المدرسية
+        إعداد: أسعد الخصيبي - مشرف الرياضة المدرسية -محافظة مسقط
     </div>
-    """, unsafe_allow_html=True)
+    """, unsafe_allow
