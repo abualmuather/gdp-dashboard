@@ -25,8 +25,10 @@ st.markdown("""
     .header-text {
         text-align: right;
         color: #d3d3d3; /* لون رمادي فاتح */
-        font-size: 0.9em; /* حجم خط صغير */
+        font-size: 0.7em; /* تصغير حجم الخط */
         margin-bottom: 10px;
+        width: 40%; /* تقليل عرض النص لتوسيطه أكثر */
+        margin-left: auto;
     }
     .section-header {
         background-color: #34495e;
@@ -142,14 +144,14 @@ elif option == "الكرة الطائرة":
         st.write(f"طول امتداد خطوط منطقة تبديل اللاعبين: {round(substitution_area_length, 1)} متر")
 
 elif option == "كرة السلة":
-    st.markdown('<div class="section-header">قياسات ملعب كرة السلة المصغر</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-header">قياسات ملعب كرة السلة المصغر</div>', unsafe_allowhtml=True)
     
-    st.markdown('<div class="input-label">أدخل العرض الجديد لملعب كرة السلة (بالمتر):</div>', unsafe_allow_html=True)
+    st.markdown('<div class="input-label">أدخل العرض الجديد لملعب كرة السلة (بالمتر):</div>', unsafe_allowhtml=True)
     basketball_width = st.number_input("", min_value=0.0, step=0.5)
     basketball_length = basketball_width * 2 - 2  # الطول يساوي ضعف العرض
 
     if basketball_width:
-        st.markdown('<div class="result-box">نتائج قياسات ملعب كرة السلة المصغر:</div>', unsafe_allow_html=True)
+        st.markdown('<div class="result-box">نتائج قياسات ملعب كرة السلة المصغر:</div>', unsafe_allowhtml=True)
         free_throw_line = 0.386 * basketball_width
         free_throw_area_width = 0.326666666666667 * basketball_width
         three_point_line = 0.45 * basketball_width
