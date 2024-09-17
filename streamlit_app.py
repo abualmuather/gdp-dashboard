@@ -93,12 +93,12 @@ if option == "كرة اليد":
 
     if handball_width:
         st.markdown('<div class="result-box">نتائج قياسات ملعب كرة اليد المصغر:</div>', unsafe_allow_html=True)
-        st.write(f"طول الملعب: {round(handball_length, 3)} متر")
-        st.write(f"خط 9 أمتار: {round(0.45 * handball_width, 3)} متر")
-        st.write(f"خط 6 أمتار: {round(0.3 * handball_width, 3)} متر")
-        st.write(f"خط رمية الجزاء: {round(0.35 * handball_width, 3)} متر")
-        st.write(f"منطقة التبديل: {round(0.23 * handball_width, 3)} متر")
-        st.write(f"منطقة الحارس: {round(0.2 * handball_width, 3)} متر")
+        st.write(f"طول الملعب: {round(handball_length, 1)} متر")
+        st.write(f"خط 9 أمتار: {round(0.45 * handball_width, 1)} متر")
+        st.write(f"خط 6 أمتار: {round(0.3 * handball_width, 1)} متر")
+        st.write(f"خط رمية الجزاء: {round(0.35 * handball_width, 1)} متر")
+        st.write(f"منطقة التبديل: {round(0.23 * handball_width, 1)} متر")
+        st.write(f"منطقة الحارس: {round(0.2 * handball_width, 1)} متر")
 
 elif option == "الكرة الطائرة":
     st.markdown('<div class="section-header">قياسات ملعب الكرة الطائرة المصغر</div>', unsafe_allow_html=True)
@@ -113,17 +113,17 @@ elif option == "الكرة الطائرة":
         back_area = 0.666666666666667 * volleyball_width
         substitution_area_length = 0.19 * volleyball_width
 
-        st.write(f"طول الملعب: {round(volleyball_length, 3)} متر")
-        st.write(f"مساحة المنطقة الأمامية: {round(front_area, 3)} متر")
-        st.write(f"مساحة المنطقة الخلفية: {round(back_area, 3)} متر")
-        st.write(f"طول امتداد خطوط منطقة تبديل اللاعبين: {round(substitution_area_length, 3)} متر")
+        st.write(f"طول الملعب: {round(volleyball_length, 1)} متر")
+        st.write(f"مساحة المنطقة الأمامية: {round(front_area, 1)} متر")
+        st.write(f"مساحة المنطقة الخلفية: {round(back_area, 1)} متر")
+        st.write(f"طول امتداد خطوط منطقة تبديل اللاعبين: {round(substitution_area_length, 1)} متر")
 
 elif option == "كرة السلة":
     st.markdown('<div class="section-header">قياسات ملعب كرة السلة المصغر</div>', unsafe_allow_html=True)
     
     st.markdown('<div class="input-label">أدخل العرض الجديد لملعب كرة السلة (بالمتر):</div>', unsafe_allow_html=True)
     basketball_width = st.number_input("", min_value=0.0, step=0.5)
-    basketball_length = basketball_width * 2-2  # الطول يساوي ضعف العرض
+    basketball_length = basketball_width * 2 - 2  # الطول يساوي ضعف العرض
 
     if basketball_width:
         st.markdown('<div class="result-box">نتائج قياسات ملعب كرة السلة المصغر:</div>', unsafe_allow_html=True)
@@ -134,13 +134,13 @@ elif option == "كرة السلة":
         distance_to_end = 0.105 * basketball_width
         free_throw_half_circle = 0.12 * basketball_width
 
-        st.write(f"طول الملعب: {round(basketball_length, 3)} متر")
-        st.write(f"طول خط الرمية الحرة: {round(free_throw_line, 3)} متر")
-        st.write(f"عرض منطقة الرمية الحرة: {round(free_throw_area_width, 3)} متر")
-        st.write(f"خط الثلاث نقاط: {round(three_point_line, 3)} متر")
-        st.write(f"قطر دائرة المنتصف: {round(center_circle_diameter, 3)} متر")
-        st.write(f"المسافة بين السلة وخط النهاية: {round(distance_to_end, 3)} متر")
-        st.write(f"نصف قطر دائرة الرمية الحرة: {round(free_throw_half_circle, 3)} متر")
+        st.write(f"طول الملعب: {round(basketball_length, 1)} متر")
+        st.write(f"طول خط الرمية الحرة: {round(free_throw_line, 1)} متر")
+        st.write(f"عرض منطقة الرمية الحرة: {round(free_throw_area_width, 1)} متر")
+        st.write(f"خط الثلاث نقاط: {round(three_point_line, 1)} متر")
+        st.write(f"قطر دائرة المنتصف: {round(center_circle_diameter, 1)} متر")
+        st.write(f"المسافة بين السلة وخط النهاية: {round(distance_to_end, 1)} متر")
+        st.write(f"نصف قطر دائرة الرمية الحرة: {round(free_throw_half_circle, 1)} متر")
 
 # إضافة اسم المعد أسفل الصفحة
 st.markdown("""
