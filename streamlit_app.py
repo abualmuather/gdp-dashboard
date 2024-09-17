@@ -74,14 +74,21 @@ st.markdown("""
         font-size: 1.2em;
         margin-bottom: 5px;
     }
+    .selectbox-label {
+        color: #ffffff; /* جعل النص أبيض */
+        font-size: 1.2em;
+        margin-bottom: 5px;
+    }
     </style>
     """, unsafe_allow_html=True)
 
 # عنوان التطبيق بتصميم حديث
 st.markdown('<div class="title">حاسبة قياسات الملاعب المصغرة</div>', unsafe_allow_html=True)
 
+# إضافة العنوان لنوع الملعب مع لون أبيض
+st.markdown('<div class="selectbox-label">اختر نوع الملعب:</div>', unsafe_allow_html=True)
 # اختيار نوع الملعب باستخدام قائمة منسدلة
-option = st.selectbox("اختر نوع الملعب:", ["كرة اليد", "الكرة الطائرة", "كرة السلة"])
+option = st.selectbox("", ["كرة اليد", "الكرة الطائرة", "كرة السلة"])
 
 # استخدام اختيار المستخدم لعرض الملعب المناسب مع إدخال يدوي
 if option == "كرة اليد":
