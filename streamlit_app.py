@@ -1,4 +1,5 @@
 import streamlit as st
+import matplotlib.pyplot as plt
 
 # إضافة CSS لتعديل النصوص والتنسيق
 st.markdown("""
@@ -24,12 +25,12 @@ st.markdown("""
     }
     .header-text {
         text-align: center;
-        color: #d3d3d3; /* لون رمادي فاتح */
-        font-size: 0.7em; /* حجم خط صغير */
+        color: #d3d3d3; 
+        font-size: 0.7em; 
         margin-bottom: 10px;
         margin-left: auto;
         margin-right: auto;
-        width: 100%; /* توسيع النص ليشغل كامل العرض */
+        width: 100%;
     }
     .section-header {
         background-color: #34495e;
@@ -60,34 +61,6 @@ st.markdown("""
         border-radius: 15px;
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
     }
-    .button {
-        background-color: #2980b9;
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 10px;
-        font-size: 1.1em;
-        cursor: pointer;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-        transition: background-color 0.3s;
-    }
-    .button:hover {
-        background-color: #3498db;
-    }
-    .slider-label {
-        color: #ecf0f1;
-        font-size: 1.1em;
-    }
-    .input-label {
-        color: #ffffff;
-        font-size: 1.2em;
-        margin-bottom: 5px;
-    }
-    .selectbox-label {
-        color: #ffffff;
-        font-size: 1.2em;
-        margin-bottom: 5px;
-    }
     </style>
     """, unsafe_allow_html=True)
 
@@ -114,24 +87,55 @@ option = st.selectbox("", ["كرة اليد", "الكرة الطائرة", "كر
 if option == "كرة القدم":
     st.markdown('<div class="section-header">قياسات ملعب كرة القدم المصغر</div>', unsafe_allow_html=True)
     
+    # توجيه المستخدم لإدخال العرض الجديد
     st.markdown('<div class="input-label">أدخل العرض الجديد لملعب كرة القدم (بالمتر):</div>', unsafe_allow_html=True)
-    football_width = st.number_input("", min_value=0.0, step=0.5)
-    football_length = football_width * 2  # الطول يساوي ضعف العرض
+    football_width = st.number_input("عرض الملعب (متر):", min_value=0.0, step=0.5)
+    
+    if st.button("احسب القياسات"):
+        # التأكد من إدخال قيمة العرض
+        if football_width > 0:
+            football_length = football_width * 2  # الطول يساوي ضعف العرض
 
-    if football_width:
-        # الحسابات باستخدام النسب على أساس العرض الرسمي 45 متر
-        goal_area_depth = (5.5 / 45) * football_width  # عمق منطقة المرمى
-        goal_area_width = (18.32 / 45) * football_width  # عرض منطقة المرمى
-        penalty_spot = (11 / 45) * football_width  # نقطة الجزاء
-        center_circle = (9.15 / 45) * football_width  # دائرة المنتصف
+            # الحسابات باستخدام النسب على أساس العرض الرسمي 45 متر
+            goal_area_depth = (5.5 / 45) * football_width  # عمق منطقة المرمى
+            goal_area_width = (18.32 / 45) * football_width  # عرض منطقة المرمى
+            penalty_spot = (11 / 45) * football_width  # نقطة الجزاء
+            center_circle = (9.15 / 45) * football_width  # دائرة المنتصف
 
-        st.markdown('<div class="result-box">نتائج قياسات ملعب كرة القدم المصغر:</div>', unsafe_allow_html=True)
-        st.write(f"طول الملعب: {round(football_length, 1)} متر")
-        st.write(f"عمق منطقة المرمى: {round(goal_area_depth, 1)} متر")
-        st.write(f"عرض منطقة المرمى: {round(goal_area_width, 1)} متر")
-        st.write(f"مسافة نقطة الجزاء: {round(penalty_spot, 1)} متر")
-        st.write(f"نصف قطر دائرة المنتصف: {round(center_circle, 1)} متر")
+            st.markdown('<div class="result-box">نتائج قياسات ملعب كرة القدم المصغر:</div>', unsafe_allow_html=True)
+            st.write(f"**طول الملعب**: {round(football_length, 1)} متر")
+            st.write(f"**عمق منطقة المرمى**: {round(goal_area_depth, 1)} متر")
+            st.write(f"**عرض منطقة المرمى**: {round(goal_area_width, 1)} متر")
+            st.write(f"**مسافة نقطة الجزاء**: {round(penalty_spot, 1)} متر")
+            st.write(f"**نصف قطر دائرة المنتصف**: {round(center_circle, 1)} متر")
+            
+            # رسم الملعب باستخدام matplotlib
+            fig, ax = plt.subplots(figsize=(10, 6))
+            ax.plot([0, football_length], [0, 0], color="white")
+            ax.plot([0, football_length], [football_width, football_width], color="white")
+            ax.plot([0, 0], [0, football_width], color="white")
+            ax.plot([football_length, football_length], [0, football_width], color="white")
+            
+            # منطقة المرمى
+            ax.plot([5.5, 5.5], [(football_width - goal_area_width) / 2, (football_width + goal_area_width) / 2], color="white")
+            ax.plot([football_length - 5.5, football_length - 5.5], [(football_width - goal_area_width) / 2, (football_width + goal_area_width) / 2], color="white")
 
+            # دائرة المنتصف
+            center_circle_artist = plt.Circle((football_length / 2, football_width / 2), center_circle, color="white", fill=False)
+            ax.add_artist(center_circle_artist)
+
+            # إعداد الرسم
+            ax.set_facecolor("#2c3e50")
+            ax.set_xlim(0, football_length)
+            ax.set_ylim(0, football_width)
+            ax.set_aspect('equal', 'box')
+            ax.set_xticks([])
+            ax.set_yticks([])
+            
+            st.pyplot(fig)
+        else:
+            st.warning("الرجاء إدخال قيمة عرض صحيحة.")
+    
 # إضافة اسم المعد أسفل الصفحة
 st.markdown("""
     <div class="footer">
