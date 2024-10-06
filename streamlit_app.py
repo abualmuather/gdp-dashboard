@@ -186,4 +186,7 @@ st.markdown("""
     <div class="footer">
         إعداد: أسعد الخصيبي - مشرف الرياضة المدرسية - محافظة مسقط
     </div>
+    <div class="footer">
+        جميع الحقوق محفوظة لدائرة الإشراف التربوي
+    </div>
     """, unsafe_allow_html=True)
