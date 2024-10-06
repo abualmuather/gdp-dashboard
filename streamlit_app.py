@@ -96,10 +96,34 @@ st.markdown('<div class="title">حاسبة قياسات الملاعب المص�
 st.markdown('<div class="selectbox-label">اختر نوع الملعب:</div>', unsafe_allow_html=True)
 
 # اختيار نوع الملعب باستخدام قائمة منسدلة
-option = st.selectbox("", ["كرة اليد", "الكرة الطائرة", "كرة السلة", "كرة القدم"])
+option = st.selectbox("", ["كرة القدم", "كرة اليد", "الكرة الطائرة", "كرة السلة"])
 
 # حسابات الملاعب بناءً على اختيار المستخدم
-if option == "كرة اليد":
+if option == "كرة القدم":
+    st.markdown('<div class="section-header">قياسات ملعب كرة القدم المصغر</div>', unsafe_allow_html=True)
+    
+    st.markdown('<div class="input-label">أدخل العرض الجديد لملعب كرة القدم (بالمتر):</div>', unsafe_allow_html=True)
+    football_width = st.number_input("", min_value=0.0, step=0.5)
+    football_length = football_width * 2  # الطول يساوي ضعف العرض
+
+    if football_width:
+        goal_area_depth = (5.5 / 45) * football_width  # عمق منطقة المرمى
+        goal_area_width = (18.32 / 45) * football_width  # عرض منطقة المرمى
+        penalty_area_depth = (16.5 / 45) * football_width  # عمق منطقة الجزاء
+        penalty_area_width = (40.3 / 45) * football_width  # عرض منطقة الجزاء
+        penalty_spot = (11 / 45) * football_width  # نقطة الجزاء
+        center_circle = (9.15 / 45) * football_width  # دائرة المنتصف
+
+        st.markdown('<div class="result-box">نتائج قياسات ملعب كرة القدم المصغر:</div>', unsafe_allow_html=True)
+        st.write(f"طول الملعب: {round(football_length, 1)} متر")
+        st.write(f"عمق منطقة المرمى: {round(goal_area_depth, 1)} متر")
+        st.write(f"عرض منطقة المرمى: {round(goal_area_width, 1)} متر")
+        st.write(f"عمق منطقة الجزاء: {round(penalty_area_depth, 1)} متر")
+        st.write(f"عرض منطقة الجزاء: {round(penalty_area_width, 1)} متر")
+        st.write(f"مسافة نقطة الجزاء: {round(penalty_spot, 1)} متر")
+        st.write(f"نصف قطر دائرة المنتصف: {round(center_circle, 1)} متر")
+
+elif option == "كرة اليد":
     st.markdown('<div class="section-header">قياسات ملعب كرة اليد المصغر</div>', unsafe_allow_html=True)
     
     st.markdown('<div class="input-label">أدخل العرض الجديد لملعب كرة اليد (بالمتر):</div>', unsafe_allow_html=True)
