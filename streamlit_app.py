@@ -130,7 +130,7 @@ if option == "كرة القدم":
         st.write(f"عمق منطقة المرمى: {round(goal_area_depth, 1)} متر")
         st.write(f"عرض منطقة المرمى: {round(goal_area_width, 1)} متر")
         st.write(f"مسافة نقطة الجزاء: {round(penalty_spot, 1)} متر")
-        st.write(f"قطر دائرة المنتصف: {round(center_circle, 1)} متر")
+        st.write(f"نصف قطر دائرة المنتصف: {round(center_circle, 1)} متر")
 
 # إضافة اسم المعد أسفل الصفحة
 st.markdown("""
