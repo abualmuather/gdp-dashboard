@@ -32,6 +32,10 @@ st.markdown("""
         margin-right: auto;
         width: 100%;
     }
+    # إضافة العبارة الخاصة بإدخال العرض الجديد بلون أبيض
+st.markdown('<div style="color: white; font-size: 1.2em;">عرض الملعب (متر):</div>', unsafe_allow_html=True)
+football_width = st.number_input("", min_value=0.0, step=0.5)
+
     .section-header {
         background-color: #34495e;
         padding: 10px;
