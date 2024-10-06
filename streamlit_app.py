@@ -32,7 +32,7 @@ st.markdown("""
         margin-right: auto;
         width: 100%;
     }
-       .section-header {
+    .section-header {
         background-color: #34495e;
         padding: 10px;
         border-radius: 8px;
@@ -82,16 +82,14 @@ st.markdown('<div class="selectbox-label">اختر نوع الملعب:</div>', 
 
 # اختيار نوع الملعب باستخدام قائمة منسدلة
 option = st.selectbox("", ["كرة اليد", "الكرة الطائرة", "كرة السلة", "كرة القدم"])
- # إضافة العبارة الخاصة بإدخال العرض الجديد بلون أبيض
-st.markdown('<div style="color: white; font-size: 1.2em;">عرض الملعب (متر):</div>', unsafe_allow_html=True)
-football_width = st.number_input("", min_value=0.0, step=0.5)
+
 # استخدام اختيار المستخدم لعرض الملعب المناسب مع إدخال يدوي
 if option == "كرة القدم":
     st.markdown('<div class="section-header">قياسات ملعب كرة القدم المصغر</div>', unsafe_allow_html=True)
     
-    # توجيه المستخدم لإدخال العرض الجديد
-    st.markdown('<div class="input-label">أدخل العرض الجديد لملعب كرة القدم (بالمتر):</div>', unsafe_allow_html=True)
-    football_width = st.number_input("عرض الملعب (متر):", min_value=0.0, step=0.5)
+    # توجيه المستخدم لإدخال العرض الجديد مع النص باللون الأبيض
+    st.markdown('<div style="color: white; font-size: 1.2em;">عرض الملعب (متر):</div>', unsafe_allow_html=True)
+    football_width = st.number_input("", min_value=0.0, step=0.5)
     
     if st.button("احسب القياسات"):
         if football_width > 0:
