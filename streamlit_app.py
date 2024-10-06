@@ -1,6 +1,5 @@
 import streamlit as st
 import matplotlib.pyplot as plt
-import numpy as np
 
 # إضافة CSS لتعديل النصوص والتنسيق
 st.markdown("""
@@ -57,8 +56,20 @@ if option == "كرة القدم":
     ax.set_aspect('equal', 'box')
     ax.set_xticks([])
     ax.set_yticks([])
+
+    # تقسيم الصفحة بين الرسم التخطيطي والقياسات
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.pyplot(fig)
     
-    st.pyplot(fig)
+    with col2:
+        st.markdown("### القياسات:")
+        st.write(f"طول الملعب: {football_length} متر")
+        st.write(f"عرض الملعب: {football_width} متر")
+        st.write(f"منطقة الجزاء: {penalty_area_length} متر (العمق) × {penalty_area_width} متر (العرض)")
+        st.write(f"منطقة المرمى: {goal_area_length} متر (العمق) × {goal_area_width} متر (العرض)")
+        st.write(f"قطر دائرة المنتصف: {center_circle_radius * 2} متر")
 
 elif option == "كرة اليد":
     st.markdown("## رسم تخطيطي لملعب كرة اليد")
@@ -89,8 +100,18 @@ elif option == "كرة اليد":
     ax.set_aspect('equal', 'box')
     ax.set_xticks([])
     ax.set_yticks([])
+
+    # تقسيم الصفحة بين الرسم التخطيطي والقياسات
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.pyplot(fig)
     
-    st.pyplot(fig)
+    with col2:
+        st.markdown("### القياسات:")
+        st.write(f"طول الملعب: {handball_length} متر")
+        st.write(f"عرض الملعب: {handball_width} متر")
+        st.write(f"منطقة المرمى: {goal_area_length} متر (العمق) × {goal_area_width} متر (العرض)")
 
 elif option == "الكرة الطائرة":
     st.markdown("## رسم تخطيطي لملعب الكرة الطائرة")
@@ -118,8 +139,17 @@ elif option == "الكرة الطائرة":
     ax.set_aspect('equal', 'box')
     ax.set_xticks([])
     ax.set_yticks([])
+
+    # تقسيم الصفحة بين الرسم التخطيطي والقياسات
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.pyplot(fig)
     
-    st.pyplot(fig)
+    with col2:
+        st.markdown("### القياسات:")
+        st.write(f"طول الملعب: {volleyball_length} متر")
+        st.write(f"عرض الملعب: {volleyball_width} متر")
 
 elif option == "كرة السلة":
     st.markdown("## رسم تخطيطي لملعب كرة السلة")
@@ -149,5 +179,13 @@ elif option == "كرة السلة":
     ax.set_aspect('equal', 'box')
     ax.set_xticks([])
     ax.set_yticks([])
+
+    # تقسيم الصفحة بين الرسم التخطيطي والقياسات
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.pyplot(fig)
     
-    st.pyplot(fig)
+    with col2:
+        st.markdown("### القياسات:")
+        st.write(f"طول الملعب: {
