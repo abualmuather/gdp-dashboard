@@ -96,6 +96,8 @@ if option == "كرة القدم":
             football_length = football_width * 2  # الطول يساوي ضعف العرض
             goal_area_depth = (5.5 / 45) * football_width  # عمق منطقة المرمى
             goal_area_width = (18.32 / 45) * football_width  # عرض منطقة المرمى
+            penalty_area_depth = (16.5 / 45) * football_width  # عمق منطقة الجزاء
+            penalty_area_width = (40.3 / 45) * football_width  # عرض منطقة الجزاء
             penalty_spot = (11 / 45) * football_width  # نقطة الجزاء
             center_circle = (9.15 / 45) * football_width  # دائرة المنتصف
 
@@ -103,19 +105,35 @@ if option == "كرة القدم":
             st.write(f"**طول الملعب**: {round(football_length, 1)} متر")
             st.write(f"**عمق منطقة المرمى**: {round(goal_area_depth, 1)} متر")
             st.write(f"**عرض منطقة المرمى**: {round(goal_area_width, 1)} متر")
+            st.write(f"**عمق منطقة الجزاء**: {round(penalty_area_depth, 1)} متر")
+            st.write(f"**عرض منطقة الجزاء**: {round(penalty_area_width, 1)} متر")
             st.write(f"**مسافة نقطة الجزاء**: {round(penalty_spot, 1)} متر")
             st.write(f"**نصف قطر دائرة المنتصف**: {round(center_circle, 1)} متر")
             
-            # رسم الملعب
+            # رسم الملعب بشكل واقعي
             fig, ax = plt.subplots(figsize=(10, 6))
             ax.plot([0, football_length], [0, 0], color="white")
             ax.plot([0, football_length], [football_width, football_width], color="white")
             ax.plot([0, 0], [0, football_width], color="white")
             ax.plot([football_length, football_length], [0, football_width], color="white")
+            
+            # منطقة الجزاء
+            ax.plot([16.5, 16.5], [(football_width - penalty_area_width) / 2, (football_width + penalty_area_width) / 2], color="white")
+            ax.plot([football_length - 16.5, football_length - 16.5], [(football_width - penalty_area_width) / 2, (football_width + penalty_area_width) / 2], color="white")
+            ax.plot([16.5, football_length - 16.5], [(football_width - penalty_area_width) / 2, (football_width - penalty_area_width) / 2], color="white")
+            ax.plot([16.5, football_length - 16.5], [(football_width + penalty_area_width) / 2, (football_width + penalty_area_width) / 2], color="white")
+            
+            # منطقة المرمى
             ax.plot([5.5, 5.5], [(football_width - goal_area_width) / 2, (football_width + goal_area_width) / 2], color="white")
             ax.plot([football_length - 5.5, football_length - 5.5], [(football_width - goal_area_width) / 2, (football_width + goal_area_width) / 2], color="white")
+            ax.plot([5.5, football_length - 5.5], [(football_width - goal_area_width) / 2, (football_width - goal_area_width) / 2], color="white")
+            ax.plot([5.5, football_length - 5.5], [(football_width + goal_area_width) / 2, (football_width + goal_area_width) / 2], color="white")
+
+            # دائرة المنتصف
             center_circle_artist = plt.Circle((football_length / 2, football_width / 2), center_circle, color="white", fill=False)
             ax.add_artist(center_circle_artist)
+
+            # إعدادات الملعب
             ax.set_facecolor("#2c3e50")
             ax.set_xlim(0, football_length)
             ax.set_ylim(0, football_width)
@@ -141,7 +159,7 @@ elif option == "كرة اليد":
             st.write(f"**عمق منطقة المرمى**: {goal_area_length} متر")
             st.write(f"**عرض منطقة المرمى**: {goal_area_width} متر")
             
-            # رسم الملعب
+            # رسم الملعب بشكل واقعي
             fig, ax = plt.subplots(figsize=(10, 5))
             ax.plot([0, handball_length], [0, 0], color="white")
             ax.plot([0, handball_length], [handball_width, handball_width], color="white")
@@ -160,7 +178,7 @@ elif option == "كرة اليد":
             st.warning("الرجاء إدخال قيمة عرض صحيحة.")
 
 elif option == "الكرة الطائرة":
-    st.markdown('<div class="section-header">قياسات ملعب الكرة الطائرة المصغر</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-header">قياسات ملعب الكرة الطائرة المصغر</div>', unsafe_allow html=True)
     volleyball_width = st.number_input("عرض الملعب (متر):", min_value=0.0, step=0.5)
     
     if st.button("احسب القياسات"):
@@ -170,7 +188,7 @@ elif option == "الكرة الطائرة":
             st.markdown('<div class="result-box">نتائج قياسات ملعب الكرة الطائرة المصغر:</div>', unsafe_allow_html=True)
             st.write(f"**طول الملعب**: {round(volleyball_length, 1)} متر")
             
-            # رسم الملعب
+            # رسم الملعب بشكل واقعي
             fig, ax = plt.subplots(figsize=(10, 5))
             ax.plot([0, volleyball_length], [0, 0], color="white")
             ax.plot([0, volleyball_length], [volleyball_width, volleyball_width], color="white")
@@ -198,7 +216,7 @@ elif option == "كرة السلة":
             st.markdown('<div class="result-box">نتائج قياسات ملعب كرة السلة المصغر:</div>', unsafe_allow_html=True)
             st.write(f"**طول الملعب**: {round(basketball_length, 1)} متر")
             
-            # رسم الملعب
+            # رسم الملعب بشكل واقعي
             fig, ax = plt.subplots(figsize=(10, 5))
             ax.plot([0, basketball_length], [0, 0], color="white")
             ax.plot([0, basketball_length], [basketball_width, basketball_width], color="white")
