@@ -120,7 +120,6 @@ if option == "كرة القدم":
 
     if football_width:
         # الحسابات باستخدام النسب على أساس العرض الرسمي 45 متر
-        penalty_area = (16.5 / 45) * football_width  # منطقة الجزاء
         goal_area_depth = (5.5 / 45) * football_width  # عمق منطقة المرمى
         goal_area_width = (18.32 / 45) * football_width  # عرض منطقة المرمى
         penalty_spot = (11 / 45) * football_width  # نقطة الجزاء
@@ -130,9 +129,8 @@ if option == "كرة القدم":
         st.write(f"طول الملعب: {round(football_length, 1)} متر")
         st.write(f"عمق منطقة المرمى: {round(goal_area_depth, 1)} متر")
         st.write(f"عرض منطقة المرمى: {round(goal_area_width, 1)} متر")
-        st.write(f"منطقة الجزاء: {round(penalty_area, 1)} متر")
         st.write(f"مسافة نقطة الجزاء: {round(penalty_spot, 1)} متر")
-        st.write(f"قطر دائرة المنتصف: {round(center_circle, 1)} متر")
+        st.write(f"نصف قطر دائرة المنتصف: {round(center_circle, 1)} متر")
 
 # إضافة اسم المعد أسفل الصفحة
 st.markdown("""
