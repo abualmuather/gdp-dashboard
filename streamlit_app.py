@@ -178,7 +178,7 @@ elif option == "كرة اليد":
             st.warning("الرجاء إدخال قيمة عرض صحيحة.")
 
 elif option == "الكرة الطائرة":
-    st.markdown('<div class="section-header">قياسات ملعب الكرة الطائرة المصغر</div>', unsafe_allow html=True)
+    st.markdown('<div class="section-header">قياسات ملعب الكرة الطائرة المصغر</div>', unsafe_allow_html=True)
     volleyball_width = st.number_input("عرض الملعب (متر):", min_value=0.0, step=0.5)
     
     if st.button("احسب القياسات"):
