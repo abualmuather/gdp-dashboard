@@ -1,5 +1,6 @@
 import streamlit as st
 import matplotlib.pyplot as plt
+import time
 
 # إضافة CSS لتعديل النصوص والتنسيق
 st.markdown("""
@@ -92,36 +93,39 @@ st.markdown("""
 # عنوان التطبيق بتصميم حديث
 st.markdown('<div class="title">حاسبة قياسات الملاعب المصغرة</div>', unsafe_allow_html=True)
 
-# إضافة العنوان لنوع الملعب مع لون أبيض
-st.markdown('<div class="selectbox-label">اختر نوع الملعب:</div>', unsafe_allow_html=True)
-
 # اختيار نوع الملعب باستخدام قائمة منسدلة
-option = st.selectbox("", ["كرة القدم", "كرة اليد", "الكرة الطائرة", "كرة السلة"])
+option = st.selectbox("اختر نوع الملعب:", ["كرة القدم", "كرة اليد", "الكرة الطائرة", "كرة السلة"])
 
 # حسابات الملاعب بناءً على اختيار المستخدم
 if option == "كرة القدم":
     st.markdown('<div class="section-header">قياسات ملعب كرة القدم المصغر</div>', unsafe_allow_html=True)
     
-    st.markdown('<div class="input-label">أدخل العرض الجديد لملعب كرة القدم (بالمتر):</div>', unsafe_allow_html=True)
+    # إدخال العرض الجديد
+    st.markdown('<div style="color: white; font-size: 1.2em;">عرض الملعب (متر):</div>', unsafe_allow_html=True)
     football_width = st.number_input("", min_value=0.0, step=0.5)
-    football_length = football_width * 2  # الطول يساوي ضعف العرض
+    
+    if st.button("احسب القياسات"):
+        with st.spinner("جاري حساب القياسات..."):
+            time.sleep(2)  # تأخير بسيط لتوضيح أن الحساب يتم
+            if football_width > 0:
+                football_length = football_width * 2  # الطول يساوي ضعف العرض
+                goal_area_depth = (5.5 / 45) * football_width  # عمق منطقة المرمى
+                goal_area_width = (18.32 / 45) * football_width  # عرض منطقة المرمى
+                penalty_area_depth = (16.5 / 45) * football_width  # عمق منطقة الجزاء
+                penalty_area_width = (40.3 / 45) * football_width  # عرض منطقة الجزاء
+                penalty_spot = (11 / 45) * football_width  # نقطة الجزاء
+                center_circle = (9.15 / 45) * football_width  # دائرة المنتصف
 
-    if football_width:
-        goal_area_depth = (5.5 / 45) * football_width  # عمق منطقة المرمى
-        goal_area_width = (18.32 / 45) * football_width  # عرض منطقة المرمى
-        penalty_area_depth = (16.5 / 45) * football_width  # عمق منطقة الجزاء
-        penalty_area_width = (40.3 / 45) * football_width  # عرض منطقة الجزاء
-        penalty_spot = (11 / 45) * football_width  # نقطة الجزاء
-        center_circle = (9.15 / 45) * football_width  # دائرة المنتصف
+                st.success("تم حساب القياسات بنجاح!")
 
-        st.markdown('<div class="result-box">نتائج قياسات ملعب كرة القدم المصغر:</div>', unsafe_allow_html=True)
-        st.write(f"طول الملعب: {round(football_length, 1)} متر")
-        st.write(f"عمق منطقة المرمى: {round(goal_area_depth, 1)} متر")
-        st.write(f"عرض منطقة المرمى: {round(goal_area_width, 1)} متر")
-        st.write(f"عمق منطقة الجزاء: {round(penalty_area_depth, 1)} متر")
-        st.write(f"عرض منطقة الجزاء: {round(penalty_area_width, 1)} متر")
-        st.write(f"مسافة نقطة الجزاء: {round(penalty_spot, 1)} متر")
-        st.write(f"نصف قطر دائرة المنتصف: {round(center_circle, 1)} متر")
+                st.markdown('<div class="result-box">نتائج قياسات ملعب كرة القدم المصغر:</div>', unsafe_allow_html=True)
+                st.write(f"طول الملعب: {round(football_length, 1)} متر")
+                st.write(f"عمق منطقة المرمى: {round(goal_area_depth, 1)} متر")
+                st.write(f"عرض منطقة المرمى: {round(goal_area_width, 1)} متر")
+                st.write(f"عمق منطقة الجزاء: {round(penalty_area_depth, 1)} متر")
+                st.write(f"عرض منطقة الجزاء: {round(penalty_area_width, 1)} متر")
+                st.write(f"مسافة نقطة الجزاء: {round(penalty_spot, 1)} متر")
+                st.write(f"نصف قطر دائرة المنتصف: {round(center_circle, 1)} متر")
 
 elif option == "كرة اليد":
     st.markdown('<div class="section-header">قياسات ملعب كرة اليد المصغر</div>', unsafe_allow_html=True)
@@ -130,14 +134,17 @@ elif option == "كرة اليد":
     handball_width = st.number_input("", min_value=0.0, step=0.5)
     handball_length = handball_width * 2  # الطول يساوي ضعف العرض
 
-    if handball_width:
-        st.markdown('<div class="result-box">نتائج قياسات ملعب كرة اليد المصغر:</div>', unsafe_allow_html=True)
-        st.write(f"طول الملعب: {round(handball_length, 1)} متر")
-        st.write(f"خط 9 أمتار: {round(0.45 * handball_width, 1)} متر")
-        st.write(f"خط 6 أمتار: {round(0.3 * handball_width, 1)} متر")
-        st.write(f"خط رمية الجزاء: {round(0.35 * handball_width, 1)} متر")
-        st.write(f"منطقة التبديل: {round(0.23 * handball_width, 1)} متر")
-        st.write(f"منطقة الحارس: {round(0.2 * handball_width, 1)} متر")
+    if st.button("احسب القياسات"):
+        with st.spinner("جاري حساب القياسات..."):
+            time.sleep(2)
+            if handball_width > 0:
+                st.markdown('<div class="result-box">نتائج قياسات ملعب كرة اليد المصغر:</div>', unsafe_allow_html=True)
+                st.write(f"طول الملعب: {round(handball_length, 1)} متر")
+                st.write(f"خط 9 أمتار: {round(0.45 * handball_width, 1)} متر")
+                st.write(f"خط 6 أمتار: {round(0.3 * handball_width, 1)} متر")
+                st.write(f"خط رمية الجزاء: {round(0.35 * handball_width, 1)} متر")
+                st.write(f"منطقة التبديل: {round(0.23 * handball_width, 1)} متر")
+                st.write(f"منطقة الحارس: {round(0.2 * handball_width, 1)} متر")
 
 elif option == "الكرة الطائرة":
     st.markdown('<div class="section-header">قياسات ملعب الكرة الطائرة المصغر</div>', unsafe_allow_html=True)
@@ -146,16 +153,19 @@ elif option == "الكرة الطائرة":
     volleyball_width = st.number_input("", min_value=0.0, step=0.5)
     volleyball_length = volleyball_width * 2  # الطول يساوي ضعف العرض
 
-    if volleyball_width:
-        st.markdown('<div class="result-box">نتائج قياسات ملعب الكرة الطائرة المصغر:</div>', unsafe_allow_html=True)
-        front_area = 0.333333333333333 * volleyball_width
-        back_area = 0.666666666666667 * volleyball_width
-        substitution_area_length = 0.19 * volleyball_width
+    if st.button("احسب القياسات"):
+        with st.spinner("جاري حساب القياسات..."):
+            time.sleep(2)
+            if volleyball_width > 0:
+                st.markdown('<div class="result-box">نتائج قياسات ملعب الكرة الطائرة المصغر:</div>', unsafe_allow_html=True)
+                front_area = 0.333333333333333 * volleyball_width
+                back_area = 0.666666666666667 * volleyball_width
+                substitution_area_length = 0.19 * volleyball_width
 
-        st.write(f"طول الملعب: {round(volleyball_length, 1)} متر")
-        st.write(f"مساحة المنطقة الأمامية: {round(front_area, 1)} متر")
-        st.write(f"مساحة المنطقة الخلفية: {round(back_area, 1)} متر")
-        st.write(f"طول امتداد خطوط منطقة تبديل اللاعبين: {round(substitution_area_length, 1)} متر")
+                st.write(f"طول الملعب: {round(volleyball_length, 1)} متر")
+                st.write(f"مساحة المنطقة الأمامية: {round(front_area, 1)} متر")
+                st.write(f"مساحة المنطقة الخلفية: {round(back_area, 1)} متر")
+                st.write(f"طول امتداد خطوط منطقة تبديل اللاعبين: {round(substitution_area_length, 1)} متر")
 
 elif option == "كرة السلة":
     st.markdown('<div class="section-header">قياسات ملعب كرة السلة المصغر</div>', unsafe_allow_html=True)
@@ -164,22 +174,25 @@ elif option == "كرة السلة":
     basketball_width = st.number_input("", min_value=0.0, step=0.5)
     basketball_length = basketball_width * 2 - 2  # الطول يساوي ضعف العرض
 
-    if basketball_width:
-        st.markdown('<div class="result-box">نتائج قياسات ملعب كرة السلة المصغر:</div>', unsafe_allow_html=True)
-        free_throw_line = 0.386 * basketball_width
-        free_throw_area_width = 0.326666666666667 * basketball_width
-        three_point_line = 0.45 * basketball_width
-        center_circle_diameter = 0.24 * basketball_width
-        distance_to_end = 0.105 * basketball_width
-        free_throw_half_circle = 0.12 * basketball_width
+    if st.button("احسب القياسات"):
+        with st.spinner("جاري حساب القياسات..."):
+            time.sleep(2)
+            if basketball_width > 0:
+                st.markdown('<div class="result-box">نتائج قياسات ملعب كرة السلة المصغر:</div>', unsafe_allow_html=True)
+                free_throw_line = 0.386 * basketball_width
+                free_throw_area_width = 0.326666666666667 * basketball_width
+                three_point_line = 0.45 * basketball_width
+                center_circle_diameter = 0.24 * basketball_width
+                distance_to_end = 0.105 * basketball_width
+                free_throw_half_circle = 0.12 * basketball_width
 
-        st.write(f"طول الملعب: {round(basketball_length, 1)} متر")
-        st.write(f"طول خط الرمية الحرة: {round(free_throw_line, 1)} متر")
-        st.write(f"عرض منطقة الرمية الحرة: {round(free_throw_area_width, 1)} متر")
-        st.write(f"خط الثلاث نقاط: {round(three_point_line, 1)} متر")
-        st.write(f"قطر دائرة المنتصف: {round(center_circle_diameter, 1)} متر")
-        st.write(f"المسافة بين السلة وخط النهاية: {round(distance_to_end, 1)} متر")
-        st.write(f"نصف قطر دائرة الرمية الحرة: {round(free_throw_half_circle, 1)} متر")
+                st.write(f"طول الملعب: {round(basketball_length, 1)} متر")
+                st.write(f"طول خط الرمية الحرة: {round(free_throw_line, 1)} متر")
+                st.write(f"عرض منطقة الرمية الحرة: {round(free_throw_area_width, 1)} متر")
+                st.write(f"خط الثلاث نقاط: {round(three_point_line, 1)} متر")
+                st.write(f"قطر دائرة المنتصف: {round(center_circle_diameter, 1)} متر")
+                st.write(f"المسافة بين السلة وخط النهاية: {round(distance_to_end, 1)} متر")
+                st.write(f"نصف قطر دائرة الرمية الحرة: {round(free_throw_half_circle, 1)} متر")
 
 # إضافة اسم المعد أسفل الصفحة
 st.markdown("""
