@@ -98,7 +98,7 @@ st.markdown('<div class="selectbox-label">اختر نوع الملعب:</div>', 
 # اختيار نوع الملعب باستخدام قائمة منسدلة
 option = st.selectbox("", ["كرة اليد", "الكرة الطائرة", "كرة السلة", "كرة القدم"])
 
-# استخدام اختيار المستخدم لعرض الملعب المناسب مع إدخال يدوي
+# حسابات الملاعب بناءً على اختيار المستخدم
 if option == "كرة القدم":
     st.markdown('<div class="section-header">قياسات ملعب كرة القدم المصغر</div>', unsafe_allow_html=True)
     
@@ -106,7 +106,6 @@ if option == "كرة القدم":
     st.markdown('<div style="color: white; font-size: 1.2em;">عرض الملعب (متر):</div>', unsafe_allow_html=True)
     football_width = st.number_input("", min_value=0.0, step=0.5)
     
-    # تحسين زر "احسب القياسات" باستخدام CSS
     if st.button("احسب القياسات"):
         if football_width > 0:
             football_length = football_width * 2  # الطول يساوي ضعف العرض
@@ -159,3 +158,101 @@ if option == "كرة القدم":
             st.pyplot(fig)
         else:
             st.warning("الرجاء إدخال قيمة عرض صحيحة.")
+
+elif option == "كرة اليد":
+    st.markdown('<div class="section-header">قياسات ملعب كرة اليد المصغر</div>', unsafe_allow_html=True)
+    handball_width = st.number_input("عرض الملعب (متر):", min_value=0.0, step=0.5)
+    
+    if st.button("احسب القياسات"):
+        if handball_width > 0:
+            handball_length = handball_width * 2  # الطول يساوي ضعف العرض
+            goal_area_length = 6
+            goal_area_width = 7
+
+            st.markdown('<div class="result-box">نتائج قياسات ملعب كرة اليد المصغر:</div>', unsafe_allow_html=True)
+            st.write(f"**طول الملعب**: {round(handball_length, 1)} متر")
+            st.write(f"**عمق منطقة المرمى**: {goal_area_length} متر")
+            st.write(f"**عرض منطقة المرمى**: {goal_area_width} متر")
+            
+            # رسم الملعب بشكل واقعي
+            fig, ax = plt.subplots(figsize=(10, 5))
+            ax.plot([0, handball_length], [0, 0], color="white")
+            ax.plot([0, handball_length], [handball_width, handball_width], color="white")
+            ax.plot([0, 0], [0, handball_width], color="white")
+            ax.plot([handball_length, handball_length], [0, handball_width], color="white")
+            ax.plot([6, 6], [(handball_width - goal_area_width) / 2, (handball_width + goal_area_width) / 2], color="white")
+            ax.plot([handball_length - 6, handball_length - 6], [(handball_width - goal_area_width) / 2, (handball_width + goal_area_width) / 2], color="white")
+            ax.set_facecolor("#2c3e50")
+            ax.set_xlim(0, handball_length)
+            ax.set_ylim(0, handball_width)
+            ax.set_aspect('equal', 'box')
+            ax.set_xticks([])
+            ax.set_yticks([])
+            st.pyplot(fig)
+        else:
+            st.warning("الرجاء إدخال قيمة عرض صحيحة.")
+
+elif option == "الكرة الطائرة":
+    st.markdown('<div class="section-header">قياسات ملعب الكرة الطائرة المصغر</div>', unsafe_allow_html=True)
+    volleyball_width = st.number_input("عرض الملعب (متر):", min_value=0.0, step=0.5)
+    
+    if st.button("احسب القياسات"):
+        if volleyball_width > 0:
+            volleyball_length = volleyball_width * 2  # الطول يساوي ضعف العرض
+
+            st.markdown('<div class="result-box">نتائج قياسات ملعب الكرة الطائرة المصغر:</div>', unsafe_allow_html=True)
+            st.write(f"**طول الملعب**: {round(volleyball_length, 1)} متر")
+            
+            # رسم الملعب بشكل واقعي
+            fig, ax = plt.subplots(figsize=(10, 5))
+            ax.plot([0, volleyball_length], [0, 0], color="white")
+            ax.plot([0, volleyball_length], [volleyball_width, volleyball_width], color="white")
+            ax.plot([0, 0], [0, volleyball_width], color="white")
+            ax.plot([volleyball_length, volleyball_length], [0, volleyball_width], color="white")
+            ax.plot([volleyball_length / 2, volleyball_length / 2], [0, volleyball_width], color="white")
+            ax.set_facecolor("#2c3e50")
+            ax.set_xlim(0, volleyball_length)
+            ax.set_ylim(0, volleyball_width)
+            ax.set_aspect('equal', 'box')
+            ax.set_xticks([])
+            ax.set_yticks([])
+            st.pyplot(fig)
+        else:
+            st.warning("الرجاء إدخال قيمة عرض صحيحة.")
+
+elif option == "كرة السلة":
+    st.markdown('<div class="section-header">قياسات ملعب كرة السلة المصغر</div>', unsafe_allow_html=True)
+    basketball_width = st.number_input("عرض الملعب (متر):", min_value=0.0, step=0.5)
+    
+    if st.button("احسب القياسات"):
+        if basketball_width > 0:
+            basketball_length = basketball_width * 2 - 2  # الطول يساوي ضعف العرض تقريباً
+
+            st.markdown('<div class="result-box">نتائج قياسات ملعب كرة السلة المصغر:</div>', unsafe_allow_html=True)
+            st.write(f"**طول الملعب**: {round(basketball_length, 1)} متر")
+            
+            # رسم الملعب بشكل واقعي
+            fig, ax = plt.subplots(figsize=(10, 5))
+            ax.plot([0, basketball_length], [0, 0], color="white")
+            ax.plot([0, basketball_length], [basketball_width, basketball_width], color="white")
+            ax.plot([0, 0], [0, basketball_width], color="white")
+            ax.plot([basketball_length, basketball_length], [0, basketball_width], color="white")
+            ax.plot([basketball_length / 2, basketball_length / 2], [0, basketball_width], color="white")
+            center_circle = plt.Circle((basketball_length / 2, basketball_width / 2), 1.8, color="white", fill=False)
+            ax.add_artist(center_circle)
+            ax.set_facecolor("#2c3e50")
+            ax.set_xlim(0, basketball_length)
+            ax.set_ylim(0, basketball_width)
+            ax.set_aspect('equal', 'box')
+            ax.set_xticks([])
+            ax.set_yticks([])
+            st.pyplot(fig)
+        else:
+            st.warning("الرجاء إدخال قيمة عرض صحيحة.")
+
+# إضافة اسم المعد أسفل الصفحة
+st.markdown("""
+    <div class="footer">
+        إعداد: أسعد الخصيبي - مشرف الرياضة المدرسية - محافظة مسقط
+    </div>
+    """, unsafe_allow_html=True)
