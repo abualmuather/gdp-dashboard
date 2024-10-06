@@ -188,4 +188,6 @@ elif option == "كرة السلة":
     
     with col2:
         st.markdown("### القياسات:")
-        st.write(f"طول الملعب: {
+        st.write(f"طول الملعب: {basketball_length} متر")
+        st.write(f"عرض الملعب: {basketball_width} متر")
+        st.write(f"قطر دائرة المنتصف: {1.8 * 2} متر")
