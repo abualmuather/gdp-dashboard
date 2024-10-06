@@ -105,10 +105,10 @@ st.markdown("""
 st.markdown('<div class="title">حاسبة قياسات الملاعب المصغرة</div>', unsafe_allow_html=True)
 
 # إضافة العنوان لنوع الملعب مع لون أبيض
-
 st.markdown('<div class="selectbox-label">اختر نوع الملعب:</div>', unsafe_allow_html=True)
+
 # اختيار نوع الملعب باستخدام قائمة منسدلة
-option = st.selectbox("", ["كرة اليد", "الكرة الطائرة", "كرة السلة"])
+option = st.selectbox("", ["كرة اليد", "الكرة الطائرة", "كرة السلة", "كرة القدم"])
 
 # استخدام اختيار المستخدم لعرض الملعب المناسب مع إدخال يدوي
 if option == "كرة اليد":
@@ -168,6 +168,26 @@ elif option == "كرة السلة":
         st.write(f"قطر دائرة المنتصف: {round(center_circle_diameter, 1)} متر")
         st.write(f"المسافة بين السلة وخط النهاية: {round(distance_to_end, 1)} متر")
         st.write(f"نصف قطر دائرة الرمية الحرة: {round(free_throw_half_circle, 1)} متر")
+
+elif option == "كرة القدم":
+    st.markdown('<div class="section-header">قياسات ملعب كرة القدم المصغر</div>', unsafe_allow_html=True)
+    
+    st.markdown('<div class="input-label">أدخل العرض الجديد لملعب كرة القدم (بالمتر):</div>', unsafe_allow_html=True)
+    football_width = st.number_input("", min_value=0.0, step=0.5)
+    football_length = football_width * 2  # الطول يساوي ضعف العرض
+
+    if football_width:
+        st.markdown('<div class="result-box">نتائج قياسات ملعب كرة القدم المصغر:</div>', unsafe_allow_html=True)
+        goal_area = 0.183 * football_width
+        penalty_area = 0.306 * football_width
+        penalty_spot = 0.455 * football_width
+        center_circle = 0.2 * football_width
+
+        st.write(f"طول الملعب: {round(football_length, 1)} متر")
+        st.write(f"منطقة المرمى: {round(goal_area, 1)} متر")
+        st.write(f"منطقة الجزاء: {round(penalty_area, 1)} متر")
+        st.write(f"مسافة نقطة الجزاء: {round(penalty_spot, 1)} متر")
+        st.write(f"قطر دائرة المنتصف: {round(center_circle, 1)} متر")
 
 # إضافة اسم المعد أسفل الصفحة
 st.markdown("""
